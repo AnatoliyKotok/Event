@@ -1,0 +1,6 @@
+﻿  Event.cpp
+C:\Users\Anatoliy\source\repos\Project6\Project6\Event.cpp(106): warning C4715: 'Podii::addkategory': not all control paths return a value
+C:\Users\Anatoliy\source\repos\Project6\Project6\Event.cpp(166): warning C4715: 'Podii::showkategory': not all control paths return a value
+Source.obj : error LNK2005: "class std::list<struct Podii::event,class std::allocator<struct Podii::event> > Podii::listevent" (?listevent@Podii@@3V?$list@Uevent@Podii@@V?$allocator@Uevent@Podii@@@std@@@std@@A) already defined in Event.obj
+Source.obj : error LNK2005: "class std::list<struct Podii::kategory,class std::allocator<struct Podii::kategory> > Podii::listkategory" (?listkategory@Podii@@3V?$list@Ukategory@Podii@@V?$allocator@Ukategory@Podii@@@std@@@std@@A) already defined in Event.obj
+C:\Users\Anatoliy\source\repos\Project6\Debug\Project6.exe : fatal error LNK1169: one or more multiply defined symbols found
