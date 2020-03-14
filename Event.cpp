@@ -1,11 +1,12 @@
 #include "Event.h"
 #include<iostream>
-#include<string>
-#include <list>
 #include<Windows.h>
+#include <list>
 
 using namespace std;
-namespace Podii {
+
+list<event>listevent;
+list<kategory>listkategory;
 	int enterEvent()
 	{
 		event newevent;
@@ -50,124 +51,124 @@ namespace Podii {
 	{
 		system("color 0F");
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
-
+		
 		for (event item : listevent) {
 			if (item.impotent == 1) {
-				SetConsoleTextAttribute(hConsole, (WORD)((0 << 2) | 2));
-				cout << "Event name->" << item.name << endl;
-				cout << "Diskription->" << item.diskription << endl;
-				cout << "Day and time->" << item.timing.day << ";" << item.timing.time << endl;
-				cout << "level importent->" << item.impotent << endl;
-				cout << "Category for event->" << item.type << endl;
+        SetConsoleTextAttribute(hConsole, (WORD)((0 << 14) | 14));
+				cout <<"Name event->"<<item.name << endl;
+				cout <<"Diskription->"<< item.diskription << endl;
+				cout<<"Tyming->"<< item.timing.day << "/" << item.timing.time<<endl;
+				cout <<"Level impotent->"<< item.impotent << endl;
+				cout <<"Kategory->"<< item.type << endl;
 				cout << endl;
 				SetConsoleTextAttribute(hConsole, (WORD)((0 << 15) | 15));
 			}
 			if (item.impotent == 2) {
 				SetConsoleTextAttribute(hConsole, (WORD)((0 << 4) | 6));
-				cout << "Event name->" << item.name << endl;
+				cout << "Name event->" << item.name << endl;
 				cout << "Diskription->" << item.diskription << endl;
-				cout << "Day and time->" << item.timing.day << ";" << item.timing.time << endl;
-				cout << "level importent->" << item.impotent << endl;
-				cout << "Category for event->" << item.type << endl;
+				cout << "Tyming->" << item.timing.day << "/" << item.timing.time << endl;
+				cout << "Level impotent->" << item.impotent << endl;
+				cout << "Kategory->" << item.type << endl;
 				cout << endl;
 				SetConsoleTextAttribute(hConsole, (WORD)((0 << 15) | 15));
 			}
 			if (item.impotent == 3) {
 				SetConsoleTextAttribute(hConsole, (WORD)((0 << 4) | 4));
-				cout << "Event name->" << item.name << endl;
+				cout << "Name event->" << item.name << endl;
 				cout << "Diskription->" << item.diskription << endl;
-				cout << "Day and time->" << item.timing.day << ";" << item.timing.time << endl;
-				cout << "level importent->" << item.impotent << endl;
-				cout << "Category for event->" << item.type << endl;
+				cout << "Tyming->" << item.timing.day << "/" << item.timing.time << endl;
+				cout << "Level impotent->" << item.impotent << endl;
+				cout << "Kategory->" << item.type << endl;
 				cout << endl;
 				SetConsoleTextAttribute(hConsole, (WORD)((0 << 15) | 15));
 			}
 		}
 
-		return 0;
+		int a;
+		cout << "For exit pres 1->";
+		cin >> a;
+		switch (a)
+		{
+		case 1:
+			return 0;
+			break;
+		}
+
+		system("cls");
 	}
 
 	int addkategory()
 	{
 		kategory newkategory;
-		cout << "Enter name for new kategory->";
+		cout << "Enter name kategory->";
 		cin >> newkategory.kategoryName;
 		listkategory.push_back(newkategory);
-		int a;
-		do {
-			cout << "For exit pres 1->";
-			cin >> a;
-			switch (a)
-			{
-			case 1:
-				return 0;
-				break;
-			}
-		} while (a != 1);
-
-
+		system("cls");
+		return 0;
 	}
 
 	int showkategory()
 	{
+
 		system("color 0F");
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-		int i = 1;
-		for (kategory item : listkategory) {
-			cout << "\tName kategoris" << endl;
-			cout << i + 1 << "." << item.kategoryName << endl;
-
-		}
-		cout << endl;
 		string name;
-		cout << "Enter name kategory what you want to see->";
+		int count = 1;
+		for (kategory item : listkategory) {
+			
+			cout << count ++ << "." << item.kategoryName << endl;
+		}
+		cout << "Enter name kategori what you want see" << endl;
 		cin >> name;
 		for (event it : listevent) {
 			if (name == it.type) {
 				if (it.impotent == 1) {
-					SetConsoleTextAttribute(hConsole, (WORD)((0 << 2) | 2));
-					cout << "Event name->" << it.name << endl;
+					SetConsoleTextAttribute(hConsole, (WORD)((0 << 14) | 14));
+					cout << "Name event->" << it.name << endl;
 					cout << "Diskription->" << it.diskription << endl;
-					cout << "Day and time->" << it.timing.day << ";" << it.timing.time << endl;
-					cout << "level importent->" << it.impotent << endl;
-					cout << "Category for event->" << it.type << endl;
+					cout << "Tyming->" << it.timing.day << "/" << it.timing.time << endl;
+					cout << "Level impotent->" << it.impotent << endl;
+					cout << "Kategory->" << it.type << endl;
 					cout << endl;
 					SetConsoleTextAttribute(hConsole, (WORD)((0 << 15) | 15));
 				}
 				if (it.impotent == 2) {
 					SetConsoleTextAttribute(hConsole, (WORD)((0 << 4) | 6));
-					cout << "Event name->" << it.name << endl;
+					cout << "Name event->" << it.name << endl;
 					cout << "Diskription->" << it.diskription << endl;
-					cout << "Day and time->" << it.timing.day << ";" << it.timing.time << endl;
-					cout << "level importent->" << it.impotent << endl;
-					cout << "Category for event->" << it.type << endl;
+					cout << "Tyming->" << it.timing.day << "/" << it.timing.time << endl;
+					cout << "Level impotent->" << it.impotent << endl;
+					cout << "Kategory->" << it.type << endl;
 					cout << endl;
 					SetConsoleTextAttribute(hConsole, (WORD)((0 << 15) | 15));
 				}
 				if (it.impotent == 3) {
 					SetConsoleTextAttribute(hConsole, (WORD)((0 << 4) | 4));
-					cout << "Event name->" << it.name << endl;
+					cout << "Name event->" << it.name << endl;
 					cout << "Diskription->" << it.diskription << endl;
-					cout << "Day and time->" << it.timing.day << ";" << it.timing.time << endl;
-					cout << "level importent->" << it.impotent << endl;
-					cout << "Category for event->" << it.type << endl;
+					cout << "Tyming->" << it.timing.day << "/" << it.timing.time << endl;
+					cout << "Level impotent->" << it.impotent << endl;
+					cout << "Kategory->" << it.type << endl;
 					cout << endl;
 					SetConsoleTextAttribute(hConsole, (WORD)((0 << 15) | 15));
 				}
 			}
+			else if(name!=it.type) {
+				cout << "You dont have event in this kategory" << endl;
+			}
 		}
 		int a;
-		do {
-			cout << "For exit pres 1->";
-			cin >> a;
-			switch (a)
-			{
-			case 1:
-				return 0;
-				break;
-			}
-		} while (a != 1);
+		cout << "For exit pres 1->";
+		cin >> a;
+		switch (a)
+		{
+		case 1:
+			return 0;
+			break;
+		}
+		system("cls");
+		return 0;
 	}
-}
+
